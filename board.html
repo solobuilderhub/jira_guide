@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kanban Board Guide with Story Points</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+        }
+        header {
+            background-color: #007bff;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .container {
+            width: 90%;
+            max-width: 900px;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #007bff;
+        }
+        .section {
+            margin-bottom: 20px;
+            padding: 15px;
+            border-left: 5px solid #007bff;
+            background-color: #eef4ff;
+            border-radius: 5px;
+        }
+        code {
+            background: #eaeaea;
+            padding: 5px;
+            border-radius: 4px;
+            font-family: "Courier New", Courier, monospace;
+        }
+        .board-visual {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 15px;
+        }
+        .column {
+            width: 20%;
+            background: #f1f1f1;
+            padding: 10px;
+            text-align: center;
+            border-radius: 5px;
+        }
+        .story-points-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        .story-points-table th, .story-points-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        .story-points-table th {
+            background-color: #007bff;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>Kanban Board Guide with Story Points</header>
+    <div class="container">
+
+        <h2>📌 Section 1: Setting Up a Kanban Board in Jira</h2>
+        <div class="section">
+            <ol>
+                <li>Go to <strong>Jira Home</strong> → Click <strong>Projects</strong> → Select your project.</li>
+                <li>Click <strong>Board</strong> → <strong>Create Board</strong> → Choose <strong>Kanban Board</strong>.</li>
+                <li>Select the appropriate <strong>Project</strong> and click <strong>Create</strong>.</li>
+                <li>Customize columns: <code>Backlog</code>, <code>To Do</code>, <code>In Progress</code>, <code>Code Review</code>, <code>Done</code>.</li>
+                <li>Enable <strong>Story Points</strong> under <strong>Board Settings</strong>.</li>
+            </ol>
+        </div>
+
+        <h2>📊 Section 2: Kanban Workflow & Visual Board</h2>
+        <div class="board-visual">
+            <div class="column"><strong>Backlog</strong></div>
+            <div class="column"><strong>To Do</strong></div>
+            <div class="column"><strong>In Progress</strong></div>
+            <div class="column"><strong>Code Review</strong></div>
+            <div class="column"><strong>Done</strong></div>
+        </div>
+
+        <h2>📏 Section 3: Understanding Story Points</h2>
+        <div class="section">
+            <p>Story points are used to estimate task complexity, not time. Use Fibonacci scale:</p>
+            <table class="story-points-table">
+                <tr>
+                    <th>Story Points</th>
+                    <th>Meaning</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Very simple, small bug fix.</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Minor task, quick to complete.</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Moderate task, some complexity.</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>Challenging but manageable.</td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>Large task, needs discussion.</td>
+                </tr>
+                <tr>
+                    <td>13+</td>
+                    <td>Too big, must be split into smaller tasks.</td>
+                </tr>
+            </table>
+        </div>
+
+        <h2>📡 Section 4: Tracking Task Duration & WIP Limits</h2>
+        <div class="section">
+            <p>Enable <strong>WIP Limits</strong> in Jira:</p>
+            <ol>
+                <li>Go to <strong>Board Settings</strong> → <strong>Columns</strong>.</li>
+                <li>Set max limits (e.g., <code>In Progress: 3</code>, <code>Code Review: 5</code>).</li>
+                <li>If exceeded, Jira highlights in red.</li>
+            </ol>
+        </div>
+
+        <h2>📊 Section 5: Reports & Metrics for Tracking</h2>
+        <div class="section">
+            <ul>
+                <li><strong>Control Chart:</strong> Tracks <code>Cycle Time</code> & <code>Lead Time</code>.</li>
+                <li><strong>Cumulative Flow Diagram (CFD):</strong> Identifies bottlenecks.</li>
+                <li><strong>Automation:</strong> Set alerts for tasks stuck for >5 days.</li>
+            </ul>
+        </div>
+
+        <h2>🚀 Section 6: Automating Task Tracking in Jira</h2>
+        <div class="section">
+            <p>Use Jira automation to warn when tasks are taking too long.</p>
+            <pre><code>
+Trigger: "Issue Transitioned to 'In Progress'"
+Condition: JQL → status = "In Progress" AND updated <= -5d
+Action: Send Slack/Email alert
+            </code></pre>
+        </div>
+
+        <h2>🔗 Conclusion</h2>
+        <p>Follow this guide to manage your Kanban board efficiently. Share this on GitHub for team-wide visibility.</p>
+
+    </div>
+</body>
+</html>
