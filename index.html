@@ -1,168 +1,252 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kanban Board Guide with Story Points</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f8f9fa;
-        }
-        header {
-            background-color: #007bff;
-            color: white;
-            padding: 15px;
-            text-align: center;
-            font-size: 24px;
-            font-weight: bold;
-        }
-        .container {
-            width: 90%;
-            max-width: 900px;
-            margin: 20px auto;
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-        }
-        h2 {
-            color: #007bff;
-        }
-        .section {
-            margin-bottom: 20px;
-            padding: 15px;
-            border-left: 5px solid #007bff;
-            background-color: #eef4ff;
-            border-radius: 5px;
-        }
-        code {
-            background: #eaeaea;
-            padding: 5px;
-            border-radius: 4px;
-            font-family: "Courier New", Courier, monospace;
-        }
-        .board-visual {
-            display: flex;
-            justify-content: space-around;
-            margin-top: 15px;
-        }
-        .column {
-            width: 20%;
-            background: #f1f1f1;
-            padding: 10px;
-            text-align: center;
-            border-radius: 5px;
-        }
-        .story-points-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 10px;
-        }
-        .story-points-table th, .story-points-table td {
-            border: 1px solid #ddd;
-            padding: 8px;
-            text-align: center;
-        }
-        .story-points-table th {
-            background-color: #007bff;
-            color: white;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Algoclan Jira Guide: Kanban Workflow & KPI Management</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <header>Kanban Board Guide with Story Points</header>
-    <div class="container">
+  <header>
+    <h1>Algoclan Jira Guide: Kanban Workflow & KPI Management</h1>
+  </header>
 
-        <h2>📌 Section 1: Setting Up a Kanban Board in Jira</h2>
-        <div class="section">
-            <ol>
-                <li>Go to <strong>Jira Home</strong> → Click <strong>Projects</strong> → Select your project.</li>
-                <li>Click <strong>Board</strong> → <strong>Create Board</strong> → Choose <strong>Kanban Board</strong>.</li>
-                <li>Select the appropriate <strong>Project</strong> and click <strong>Create</strong>.</li>
-                <li>Customize columns: <code>Backlog</code>, <code>To Do</code>, <code>In Progress</code>, <code>Code Review</code>, <code>Done</code>.</li>
-                <li>Enable <strong>Story Points</strong> under <strong>Board Settings</strong>.</li>
-            </ol>
-        </div>
+  <nav>
+    <ul>
+      <li><a href="#setup">1. Board Setup</a></li>
+      <li><a href="#visual">2. Visual Layout</a></li>
+      <li><a href="#story-points">3. Story Points & Timelines</a></li>
+      <li><a href="#workflow">4. Task Workflow</a></li>
+      <li><a href="#manager">5. Manager Guidelines & KPI</a></li>
+      <li><a href="#reports">6. Reports & Automation</a></li>
+      <li><a href="#concepts">7. Agile Concepts</a></li>
+      <li><a href="#conclusion">8. Conclusion</a></li>
+    </ul>
+  </nav>
 
-        <h2>📊 Section 2: Kanban Workflow & Visual Board</h2>
-        <div class="board-visual">
-            <div class="column"><strong>Backlog</strong></div>
-            <div class="column"><strong>To Do</strong></div>
-            <div class="column"><strong>In Progress</strong></div>
-            <div class="column"><strong>Code Review</strong></div>
-            <div class="column"><strong>Done</strong></div>
-        </div>
+  <main>
+    <!-- Section 1: Board Setup -->
+    <section id="setup" class="section">
+      <h2>1. Setting Up the Kanban Board in Jira</h2>
+      <ol>
+        <li>
+          Log in to <strong>Jira Home</strong> and navigate to <strong>Projects</strong>.
+        </li>
+        <li>Select your project (e.g., <em>Algoclan Project</em>).</li>
+        <li>
+          Click on <strong>Board</strong> → <strong>Create Board</strong> → Choose <strong>Kanban Board</strong>.
+        </li>
+        <li>
+          Select the project and click <strong>Create</strong>.
+        </li>
+        <li>
+          Customize board columns to include:
+          <ul>
+            <li><code>Backlog</code></li>
+            <li><code>To Do</code></li>
+            <li><code>In Progress</code></li>
+            <li><code>Code Review</code></li>
+            <li><code>Reopen</code> – For tasks requiring rework</li>
+            <li><code>Done</code></li>
+          </ul>
+        </li>
+        <li>
+          Enable <strong>Story Points</strong> and set up estimation fields under <em>Board Settings</em>.
+        </li>
+      </ol>
+    </section>
 
-        <h2>📏 Section 3: Understanding Story Points</h2>
-        <div class="section">
-            <p>Story points are used to estimate task complexity, not time. Use Fibonacci scale:</p>
-            <table class="story-points-table">
-                <tr>
-                    <th>Story Points</th>
-                    <th>Meaning</th>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>Very simple, small bug fix.</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Minor task, quick to complete.</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>Moderate task, some complexity.</td>
-                </tr>
-                <tr>
-                    <td>5</td>
-                    <td>Challenging but manageable.</td>
-                </tr>
-                <tr>
-                    <td>8</td>
-                    <td>Large task, needs discussion.</td>
-                </tr>
-                <tr>
-                    <td>13+</td>
-                    <td>Too big, must be split into smaller tasks.</td>
-                </tr>
-            </table>
-        </div>
+    <!-- Section 2: Visual Layout -->
+    <section id="visual" class="section">
+      <h2>2. Kanban Board Visual Layout</h2>
+      <div class="board-visual">
+        <div class="column">Backlog</div>
+        <div class="column">To Do</div>
+        <div class="column">In Progress</div>
+        <div class="column">Code Review</div>
+        <div class="column">Reopen</div>
+        <div class="column">Done</div>
+      </div>
+      <p>
+        This layout visually segments tasks at each stage. The <strong>Reopen</strong> column is used to flag tasks that did not meet acceptance criteria and need rework.
+      </p>
+    </section>
 
-        <h2>📡 Section 4: Tracking Task Duration & WIP Limits</h2>
-        <div class="section">
-            <p>Enable <strong>WIP Limits</strong> in Jira:</p>
-            <ol>
-                <li>Go to <strong>Board Settings</strong> → <strong>Columns</strong>.</li>
-                <li>Set max limits (e.g., <code>In Progress: 3</code>, <code>Code Review: 5</code>).</li>
-                <li>If exceeded, Jira highlights in red.</li>
-            </ol>
-        </div>
+    <!-- Section 3: Story Points & Timelines -->
+    <section id="story-points" class="section">
+      <h2>3. Understanding Story Points & Timelines</h2>
+      <p>
+        Story points estimate task complexity. For planning, we map these points to approximate timelines:
+      </p>
+      <table class="story-points-table">
+        <tr>
+          <th>Story Points</th>
+          <th>Complexity</th>
+          <th>Estimated Timeline</th>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>Very simple task</td>
+          <td>~4 hours</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Simple task</td>
+          <td>~1 day</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Moderate task</td>
+          <td>~1 day 4 hours</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>Complex task</td>
+          <td>~2 days</td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td>Very complex task</td>
+          <td>~3-4 days</td>
+        </tr>
+        <tr>
+          <td>13+</td>
+          <td>Needs splitting</td>
+          <td>Break into smaller tasks</td>
+        </tr>
+      </table>
+      <p>
+        During sprint planning and standup calls, managers use these guidelines to set realistic expectations.
+      </p>
+    </section>
 
-        <h2>📊 Section 5: Reports & Metrics for Tracking</h2>
-        <div class="section">
-            <ul>
-                <li><strong>Control Chart:</strong> Tracks <code>Cycle Time</code> & <code>Lead Time</code>.</li>
-                <li><strong>Cumulative Flow Diagram (CFD):</strong> Identifies bottlenecks.</li>
-                <li><strong>Automation:</strong> Set alerts for tasks stuck for >5 days.</li>
-            </ul>
-        </div>
+    <!-- Section 4: Task Workflow -->
+    <section id="workflow" class="section">
+      <h2>4. Task Workflow & Tracking Measures</h2>
+      <p>
+        Our workflow is designed for continuous development and transparency:
+      </p>
+      <ol>
+        <li>
+          <strong>Backlog:</strong> Ideas and tasks awaiting prioritization.
+        </li>
+        <li>
+          <strong>To Do:</strong> Tasks chosen for the current cycle.
+        </li>
+        <li>
+          <strong>In Progress:</strong> Tasks currently being developed. <em>WIP limits</em> (e.g., max 3 tasks) should be maintained.
+        </li>
+        <li>
+          <strong>Code Review:</strong> Completed tasks awaiting review.
+        </li>
+        <li>
+          <strong>Reopen:</strong> Tasks that fail acceptance criteria and require rework. Frequent reopening may negatively affect a developer’s KPI.
+        </li>
+        <li>
+          <strong>Done:</strong> Tasks that have passed review and are complete.
+        </li>
+      </ol>
+      <p>
+        Jira’s time tracking and automated alerts help ensure tasks are updated according to the estimated timelines.
+      </p>
+    </section>
 
-        <h2>🚀 Section 6: Automating Task Tracking in Jira</h2>
-        <div class="section">
-            <p>Use Jira automation to warn when tasks are taking too long.</p>
-            <pre><code>
-Trigger: "Issue Transitioned to 'In Progress'"
-Condition: JQL → status = "In Progress" AND updated <= -5d
+    <!-- Section 5: Manager Guidelines & KPI -->
+    <section id="manager" class="section">
+      <h2>5. Manager Guidelines & KPI Assignment</h2>
+      <p>
+        Managers play a crucial role in ensuring task quality and meeting deadlines:
+      </p>
+      <ul>
+        <li>
+          <strong>Standup Meetings:</strong> Managers discuss tasks with developers and assign story points based on complexity and timeline estimates.
+        </li>
+        <li>
+          <strong>Point Assignment:</strong> Only managers can adjust story points. This ensures that estimates remain consistent and reflect task difficulty.
+        </li>
+        <li>
+          <strong>KPI Metrics:</strong>
+          <ul>
+            <li>Timeliness: Completion of tasks within the estimated timeline.</li>
+            <li>Quality: Number of tasks sent back to the <code>Reopen</code> column.</li>
+            <li>Throughput: Number of tasks completed per cycle.</li>
+          </ul>
+        </li>
+        <li>
+          <strong>Impact of Reopened Tasks:</strong> Tasks that are reopened will be tracked, and frequent reopens may lead to a review of the original estimation and affect the developer’s KPI.
+        </li>
+      </ul>
+      <p>
+        Managers should use Jira’s reporting tools to monitor KPIs and discuss performance in periodic review meetings.
+      </p>
+    </section>
+
+    <!-- Section 6: Reports & Automation -->
+    <section id="reports" class="section">
+      <h2>6. Reports, Metrics & Automation</h2>
+      <p>
+        Jira provides various reporting tools to monitor workflow health and efficiency:
+      </p>
+      <ul>
+        <li>
+          <strong>Control Chart:</strong> Track cycle and lead times for tasks.
+        </li>
+        <li>
+          <strong>Cumulative Flow Diagram (CFD):</strong> Visualize work in progress and identify bottlenecks.
+        </li>
+        <li>
+          <strong>Automation Rules:</strong>
+          <pre><code>
+Trigger: Issue transitioned to "In Progress"
+Condition: JQL – status = "In Progress" AND updated <= -5d
 Action: Send Slack/Email alert
-            </code></pre>
-        </div>
+          </code></pre>
+          Automation ensures timely notifications if tasks remain stagnant.
+        </li>
+      </ul>
+    </section>
 
-        <h2>🔗 Conclusion</h2>
-        <p>Follow this guide to manage your Kanban board efficiently. Share this on GitHub for team-wide visibility.</p>
+    <!-- Section 7: Agile Concepts -->
+    <section id="concepts" class="section">
+      <h2>7. Agile Concepts & Best Practices</h2>
+      <p>
+        Our development approach is a hybrid of Scrum and continuous development:
+      </p>
+      <ul>
+        <li>
+          <strong>Daily Standups:</strong> Brief meetings to discuss progress and blockers.
+        </li>
+        <li>
+          <strong>Sprint Planning:</strong> Collaborative review of tasks and estimation of story points.
+        </li>
+        <li>
+          <strong>Continuous Integration:</strong> Frequent code merges and regular code reviews to maintain quality.
+        </li>
+        <li>
+          <strong>Retrospectives:</strong> Periodic sessions to discuss what went well and how to improve.
+        </li>
+        <li>
+          <strong>Feedback Loop:</strong> Encourage open communication and ongoing adjustments.
+        </li>
+      </ul>
+    </section>
 
-    </div>
+    <!-- Section 8: Conclusion -->
+    <section id="conclusion" class="section">
+      <h2>8. Conclusion</h2>
+      <p>
+        This guide provides a comprehensive overview of how Algoclan manages its tasks and measures performance using Jira. By following the defined board setup, estimation, and KPI guidelines, all team members will understand what to expect and how to deliver work efficiently.
+      </p>
+      <p>
+        Please keep this document updated and review it periodically during retrospectives.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Algoclan. All Rights Reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
