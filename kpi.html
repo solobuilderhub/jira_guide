@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Algoclan KPI Guide</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Algoclan KPI Guide</h1>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="#kpi-guide">KPI Guide for Developers</a></li>
+      <li><a href="#manager-kpi">Manager KPI Metrics Setup</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <!-- KPI Guide for Developers -->
+    <section id="kpi-guide" class="section">
+      <h2>KPI Guide for Developers</h2>
+      <p>This section explains how to assign and track KPI scores for developers based on their performance.</p>
+      
+      <h3>Defining Developer KPIs</h3>
+      <ul>
+        <li><strong>Issues Resolved:</strong> Number of tasks closed per sprint.</li>
+        <li><strong>Code Quality:</strong> Number of bugs and feedback from code reviews.</li>
+        <li><strong>Commit Frequency:</strong> Regular code commits indicating active development.</li>
+        <li><strong>Story Points Delivered:</strong> Total story points completed per sprint.</li>
+        <li><strong>Timeliness:</strong> Completion of tasks within the estimated timelines.</li>
+      </ul>
+      
+      <h3>Assigning KPI Scores</h3>
+      <p>You can use a 5-point scale for each metric:</p>
+      <table class="story-points-table">
+        <tr>
+          <th>KPI</th>
+          <th>Poor (1)</th>
+          <th>Needs Improvement (2)</th>
+          <th>Average (3)</th>
+          <th>Good (4)</th>
+          <th>Excellent (5)</th>
+        </tr>
+        <tr>
+          <td>Issues Resolved</td>
+          <td>&lt; 4</td>
+          <td>4-5</td>
+          <td>6-7</td>
+          <td>8-9</td>
+          <td>10+</td>
+        </tr>
+        <tr>
+          <td>Code Quality</td>
+          <td>5+ critical bugs</td>
+          <td>3-4 critical bugs</td>
+          <td>1-2 critical bugs</td>
+          <td>Minor issues only</td>
+          <td>No bugs reported</td>
+        </tr>
+        <tr>
+          <td>Commit Frequency</td>
+          <td>No commits</td>
+          <td>1-2 per week</td>
+          <td>3 per week</td>
+          <td>4-5 per week</td>
+          <td>Daily commits</td>
+        </tr>
+        <tr>
+          <td>Story Points Delivered</td>
+          <td>&lt; 40%</td>
+          <td>40-59%</td>
+          <td>60-79%</td>
+          <td>80-99%</td>
+          <td>100%+</td>
+        </tr>
+      </table>
+      
+      <h3>Tracking and Automation</h3>
+      <p>
+        KPIs can be tracked using Google Sheets, Jira dashboards, or integrated tools like Power BI. For example, in Google Sheets, you can calculate an overall KPI score with:
+      </p>
+      <pre><code>=AVERAGE(B2:E2)</code></pre>
+      <p>
+        Conditional formatting can then be used to visualize performance.
+      </p>
+    </section>
+
+    <!-- Manager KPI Metrics Setup -->
+    <section id="manager-kpi" class="section">
+      <h2>Manager KPI Metrics Setup</h2>
+      <p>This section guides managers on setting up and tracking KPI metrics to evaluate team performance effectively.</p>
+      
+      <h3>Key Metrics for Managers</h3>
+      <ul>
+        <li><strong>Task Throughput:</strong> Monitor the number of tasks completed by the team.</li>
+        <li><strong>Reopen Rates:</strong> Track tasks sent back for rework to measure quality.</li>
+        <li><strong>Team Efficiency:</strong> Average story points completed per sprint.</li>
+        <li><strong>Time to Resolution:</strong> Monitor average time taken to resolve issues.</li>
+      </ul>
+      
+      <h3>Setting Up the KPI Dashboard</h3>
+      <ol>
+        <li>Define the metrics and set target values.</li>
+        <li>Create custom fields in Jira to capture necessary data.</li>
+        <li>Use Jira filters and gadgets on dashboards to display real-time KPI data.</li>
+        <li>Automate data extraction with Jira Automation or third-party integrations (e.g., Zapier, Power BI).</li>
+      </ol>
+      
+      <h3>Example: KPI Calculation in Google Sheets</h3>
+      <p>Use the following formula to calculate an overall KPI score:</p>
+      <pre><code>=AVERAGE(B2:E2)</code></pre>
+      <p>
+        Then apply conditional formatting rules:
+      </p>
+      <ul>
+        <li>Green for scores 4–5</li>
+        <li>Yellow for scores 3–4</li>
+        <li>Red for scores below 3</li>
+      </ul>
+      <p>
+        Regular reviews during team meetings help ensure continuous improvement.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Algoclan. All Rights Reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
