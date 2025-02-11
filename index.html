@@ -3,126 +3,237 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Algoclan KPI Guide</title>
+  <title>Algoclan Jira Guide: Kanban Workflow & KPI Management</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header>
-    <h1>Algoclan KPI Guide</h1>
+    <h1>Algoclan Jira Guide: Kanban Workflow & KPI Management</h1>
   </header>
 
   <nav>
     <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="#kpi-guide">KPI Guide for Developers</a></li>
-      <li><a href="#manager-kpi">Manager KPI Metrics Setup</a></li>
+      <li><a href="#setup">1. Board Setup</a></li>
+      <li><a href="#visual">2. Visual Layout</a></li>
+      <li><a href="#story-points">3. Story Points & Timelines</a></li>
+      <li><a href="#workflow">4. Task Workflow</a></li>
+      <li><a href="#manager">5. Manager Guidelines & KPI</a></li>
+      <li><a href="kpi.html">6. KPI Guide</a></li>
+      <li><a href="#reports">7. Reports & Automation</a></li>
+      <li><a href="#concepts">8. Agile Concepts</a></li>
+      <li><a href="#conclusion">9. Conclusion</a></li>
     </ul>
   </nav>
 
   <main>
-    <!-- KPI Guide for Developers -->
-    <section id="kpi-guide" class="section">
-      <h2>KPI Guide for Developers</h2>
-      <p>This section explains how to assign and track KPI scores for developers based on their performance.</p>
-      
-      <h3>Defining Developer KPIs</h3>
-      <ul>
-        <li><strong>Issues Resolved:</strong> Number of tasks closed per sprint.</li>
-        <li><strong>Code Quality:</strong> Number of bugs and feedback from code reviews.</li>
-        <li><strong>Commit Frequency:</strong> Regular code commits indicating active development.</li>
-        <li><strong>Story Points Delivered:</strong> Total story points completed per sprint.</li>
-        <li><strong>Timeliness:</strong> Completion of tasks within the estimated timelines.</li>
-      </ul>
-      
-      <h3>Assigning KPI Scores</h3>
-      <p>You can use a 5-point scale for each metric:</p>
-      <table class="story-points-table">
-        <tr>
-          <th>KPI</th>
-          <th>Poor (1)</th>
-          <th>Needs Improvement (2)</th>
-          <th>Average (3)</th>
-          <th>Good (4)</th>
-          <th>Excellent (5)</th>
-        </tr>
-        <tr>
-          <td>Issues Resolved</td>
-          <td>&lt; 4</td>
-          <td>4-5</td>
-          <td>6-7</td>
-          <td>8-9</td>
-          <td>10+</td>
-        </tr>
-        <tr>
-          <td>Code Quality</td>
-          <td>5+ critical bugs</td>
-          <td>3-4 critical bugs</td>
-          <td>1-2 critical bugs</td>
-          <td>Minor issues only</td>
-          <td>No bugs reported</td>
-        </tr>
-        <tr>
-          <td>Commit Frequency</td>
-          <td>No commits</td>
-          <td>1-2 per week</td>
-          <td>3 per week</td>
-          <td>4-5 per week</td>
-          <td>Daily commits</td>
-        </tr>
-        <tr>
-          <td>Story Points Delivered</td>
-          <td>&lt; 40%</td>
-          <td>40-59%</td>
-          <td>60-79%</td>
-          <td>80-99%</td>
-          <td>100%+</td>
-        </tr>
-      </table>
-      
-      <h3>Tracking and Automation</h3>
+    <!-- Section 1: Board Setup -->
+    <section id="setup" class="section">
+      <h2>1. Setting Up the Kanban Board in Jira</h2>
+      <ol>
+        <li>Log in to <strong>Jira Home</strong> and navigate to <strong>Projects</strong>.</li>
+        <li>Select your project (e.g., <em>Algoclan Project</em>).</li>
+        <li>Click on <strong>Board</strong> → <strong>Create Board</strong> → Choose <strong>Kanban Board</strong>.</li>
+        <li>Select the project and click <strong>Create</strong>.</li>
+        <li>
+          Customize board columns to include:
+          <ul>
+            <li><code>Backlog</code></li>
+            <li><code>To Do</code></li>
+            <li><code>In Progress</code></li>
+            <li><code>Code Review</code></li>
+            <li><code>Reopen</code> – For tasks requiring rework</li>
+            <li><code>Done</code></li>
+          </ul>
+        </li>
+        <li>
+          Enable <strong>Story Points</strong> and set up estimation fields under <em>Board Settings</em>.
+        </li>
+      </ol>
+    </section>
+
+    <!-- Section 2: Visual Layout -->
+    <section id="visual" class="section">
+      <h2>2. Kanban Board Visual Layout</h2>
+      <div class="board-visual">
+        <div class="column">Backlog</div>
+        <div class="column">To Do</div>
+        <div class="column">In Progress</div>
+        <div class="column">Code Review</div>
+        <div class="column">Reopen</div>
+        <div class="column">Done</div>
+      </div>
       <p>
-        KPIs can be tracked using Google Sheets, Jira dashboards, or integrated tools like Power BI. For example, in Google Sheets, you can calculate an overall KPI score with:
-      </p>
-      <pre><code>=AVERAGE(B2:E2)</code></pre>
-      <p>
-        Conditional formatting can then be used to visualize performance.
+        This layout visually segments tasks at each stage. The <strong>Reopen</strong> column is used to flag tasks that did not meet acceptance criteria and need rework.
       </p>
     </section>
 
-    <!-- Manager KPI Metrics Setup -->
-    <section id="manager-kpi" class="section">
-      <h2>Manager KPI Metrics Setup</h2>
-      <p>This section guides managers on setting up and tracking KPI metrics to evaluate team performance effectively.</p>
-      
-      <h3>Key Metrics for Managers</h3>
-      <ul>
-        <li><strong>Task Throughput:</strong> Monitor the number of tasks completed by the team.</li>
-        <li><strong>Reopen Rates:</strong> Track tasks sent back for rework to measure quality.</li>
-        <li><strong>Team Efficiency:</strong> Average story points completed per sprint.</li>
-        <li><strong>Time to Resolution:</strong> Monitor average time taken to resolve issues.</li>
-      </ul>
-      
-      <h3>Setting Up the KPI Dashboard</h3>
-      <ol>
-        <li>Define the metrics and set target values.</li>
-        <li>Create custom fields in Jira to capture necessary data.</li>
-        <li>Use Jira filters and gadgets on dashboards to display real-time KPI data.</li>
-        <li>Automate data extraction with Jira Automation or third-party integrations (e.g., Zapier, Power BI).</li>
-      </ol>
-      
-      <h3>Example: KPI Calculation in Google Sheets</h3>
-      <p>Use the following formula to calculate an overall KPI score:</p>
-      <pre><code>=AVERAGE(B2:E2)</code></pre>
+    <!-- Section 3: Story Points & Timelines -->
+    <section id="story-points" class="section">
+      <h2>3. Story Points & Timelines</h2>
       <p>
-        Then apply conditional formatting rules:
+        Story points estimate task complexity. For planning, we map these points to approximate timelines:
+      </p>
+      <table class="story-points-table">
+        <tr>
+          <th>Story Points</th>
+          <th>Complexity</th>
+          <th>Estimated Timeline</th>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>Very simple task</td>
+          <td>~4 hours</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Simple task</td>
+          <td>~1 day</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Moderate task</td>
+          <td>~1 day 4 hours</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>Complex task</td>
+          <td>~2 days</td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td>Very complex task</td>
+          <td>~3-4 days</td>
+        </tr>
+        <tr>
+          <td>13+</td>
+          <td>Needs splitting</td>
+          <td>Break into smaller tasks</td>
+        </tr>
+      </table>
+      <p>
+        During sprint planning and standup calls, managers use these guidelines to set realistic expectations.
+      </p>
+    </section>
+
+    <!-- Section 4: Task Workflow -->
+    <section id="workflow" class="section">
+      <h2>4. Task Workflow & Tracking Measures</h2>
+      <p>
+        Our workflow is designed for continuous development and transparency:
+      </p>
+      <ol>
+        <li>
+          <strong>Backlog:</strong> Ideas and tasks awaiting prioritization.
+        </li>
+        <li>
+          <strong>To Do:</strong> Tasks chosen for the current cycle.
+        </li>
+        <li>
+          <strong>In Progress:</strong> Tasks currently being developed. <em>WIP limits</em> (e.g., max 3 tasks) should be maintained.
+        </li>
+        <li>
+          <strong>Code Review:</strong> Completed tasks awaiting review.
+        </li>
+        <li>
+          <strong>Reopen:</strong> Tasks that fail acceptance criteria and require rework. Frequent reopening may negatively affect a developer’s KPI.
+        </li>
+        <li>
+          <strong>Done:</strong> Tasks that have passed review and are complete.
+        </li>
+      </ol>
+      <p>
+        Jira’s time tracking and automated alerts help ensure tasks are updated according to the estimated timelines.
+      </p>
+    </section>
+
+    <!-- Section 5: Manager Guidelines & KPI -->
+    <section id="manager" class="section">
+      <h2>5. Manager Guidelines & KPI Assignment</h2>
+      <p>
+        Managers play a crucial role in ensuring task quality and meeting deadlines:
       </p>
       <ul>
-        <li>Green for scores 4–5</li>
-        <li>Yellow for scores 3–4</li>
-        <li>Red for scores below 3</li>
+        <li>
+          <strong>Standup Meetings:</strong> Discuss tasks with developers and assign story points based on complexity and timeline estimates.
+        </li>
+        <li>
+          <strong>Point Assignment:</strong> Only managers can adjust story points to maintain consistency in estimates.
+        </li>
+        <li>
+          <strong>KPI Metrics:</strong>
+          <ul>
+            <li>Timeliness: Completion of tasks within the estimated timeline.</li>
+            <li>Quality: Number of tasks sent back to the <code>Reopen</code> column.</li>
+            <li>Throughput: Number of tasks completed per cycle.</li>
+          </ul>
+        </li>
+        <li>
+          <strong>Impact of Reopened Tasks:</strong> Tasks that are reopened will be tracked, and frequent reopens may affect the developer’s KPI.
+        </li>
       </ul>
       <p>
-        Regular reviews during team meetings help ensure continuous improvement.
+        Managers should use Jira’s reporting tools to monitor KPIs and discuss performance in periodic review meetings.
+      </p>
+    </section>
+
+    <!-- Section 7: Reports & Automation -->
+    <section id="reports" class="section">
+      <h2>7. Reports, Metrics & Automation</h2>
+      <p>
+        Jira provides various reporting tools to monitor workflow health and efficiency:
+      </p>
+      <ul>
+        <li>
+          <strong>Control Chart:</strong> Track cycle and lead times for tasks.
+        </li>
+        <li>
+          <strong>Cumulative Flow Diagram (CFD):</strong> Visualize work in progress and identify bottlenecks.
+        </li>
+        <li>
+          <strong>Automation Rules:</strong>
+          <pre><code>
+Trigger: Issue transitioned to "In Progress"
+Condition: JQL – status = "In Progress" AND updated <= -5d
+Action: Send Slack/Email alert
+          </code></pre>
+          Automation ensures timely notifications if tasks remain stagnant.
+        </li>
+      </ul>
+    </section>
+
+    <!-- Section 8: Agile Concepts -->
+    <section id="concepts" class="section">
+      <h2>8. Agile Concepts & Best Practices</h2>
+      <p>
+        Our development approach is a hybrid of Scrum and continuous development:
+      </p>
+      <ul>
+        <li>
+          <strong>Daily Standups:</strong> Brief meetings to discuss progress and blockers.
+        </li>
+        <li>
+          <strong>Sprint Planning:</strong> Collaborative review of tasks and estimation of story points.
+        </li>
+        <li>
+          <strong>Continuous Integration:</strong> Frequent code merges and regular code reviews to maintain quality.
+        </li>
+        <li>
+          <strong>Retrospectives:</strong> Periodic sessions to discuss improvements.
+        </li>
+        <li>
+          <strong>Feedback Loop:</strong> Encourage open communication and ongoing adjustments.
+        </li>
+      </ul>
+    </section>
+
+    <!-- Section 9: Conclusion -->
+    <section id="conclusion" class="section">
+      <h2>9. Conclusion</h2>
+      <p>
+        This guide provides a comprehensive overview of how Algoclan manages its tasks and measures performance using Jira. By following the defined board setup, estimation, and KPI guidelines, all team members will understand what to expect and how to deliver work efficiently.
+      </p>
+      <p>
+        Please keep this document updated and review it periodically during retrospectives.
       </p>
     </section>
   </main>
