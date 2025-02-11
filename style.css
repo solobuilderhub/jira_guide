@@ -1,0 +1,111 @@
+/* Base Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background-color: #f8f9fa;
+  color: #333;
+}
+
+header {
+  background-color: #007bff;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Navigation Styles */
+nav {
+  background-color: #0056b3;
+  padding: 10px 20px;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+nav ul li {
+  margin: 0 10px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav ul li a:hover {
+  text-decoration: underline;
+}
+
+/* Main Content */
+main {
+  width: 90%;
+  max-width: 1000px;
+  margin: 20px auto;
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+/* Section Styles */
+.section {
+  margin-bottom: 30px;
+  padding: 20px;
+  border-left: 5px solid #007bff;
+  background-color: #eef4ff;
+  border-radius: 5px;
+}
+
+h2 {
+  color: #007bff;
+  margin-top: 0;
+}
+
+/* Kanban Board Visual */
+.board-visual {
+  display: flex;
+  justify-content: space-around;
+  margin: 20px 0;
+}
+
+.column {
+  background: #f1f1f1;
+  padding: 10px;
+  flex: 1;
+  margin: 0 5px;
+  text-align: center;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+/* Story Points Table */
+.story-points-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+.story-points-table th,
+.story-points-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+}
+
+.story-points-table th {
+  background-color: #007bff;
+  color: #fff;
+}
+
+/* Footer */
+footer {
+  background-color: #007bff;
+  color: #fff;
+  text-align: center;
+  padding: 15px;
+  margin-top: 20px;
+}
