@@ -18,13 +18,13 @@
       <li><a href="#setup">1. Board Setup</a></li>
       <li><a href="#visual">2. Visual Layout</a></li>
       <li><a href="#story-points">3. Story Points & Timelines</a></li>
-      <li><a href="#workflow">4. Task Workflow</a></li>
-      <li><a href="#manager">5. Manager Guidelines & KPI</a></li>
-      <!-- The KPI Guide link now correctly points to kpi.html -->
-      <li><a href="kpi.html">6. KPI Guide</a></li>
-      <li><a href="#reports">7. Reports & Automation</a></li>
-      <li><a href="#concepts">8. Agile Concepts</a></li>
-      <li><a href="#conclusion">9. Conclusion</a></li>
+      <li><a href="#workflow">4. Task Workflow & Tracking</a></li>
+      <li><a href="#permissions">5. Permissions & Roles</a></li>
+      <li><a href="#manager">6. Manager Guidelines & KPI Assignment</a></li>
+      <li><a href="#kpi-overview">7. KPI Overview</a></li>
+      <li><a href="#reports">8. Reports & Automation</a></li>
+      <li><a href="#concepts">9. Agile Concepts</a></li>
+      <li><a href="#conclusion">10. Conclusion</a></li>
     </ul>
   </nav>
 
@@ -118,72 +118,98 @@
       </p>
     </section>
 
-    <!-- Section 4: Task Workflow -->
+    <!-- Section 4: Task Workflow & Tracking -->
     <section id="workflow" class="section">
       <h2>4. Task Workflow & Tracking Measures</h2>
-      <p>
-        Our workflow is designed for continuous development and transparency:
-      </p>
       <ol>
+        <li><strong>Backlog:</strong> Ideas and tasks awaiting prioritization.</li>
+        <li><strong>To Do:</strong> Tasks chosen for the current cycle.</li>
         <li>
-          <strong>Backlog:</strong> Ideas and tasks awaiting prioritization.
+          <strong>In Progress:</strong> Tasks currently being developed. Maintain <em>WIP limits</em> (e.g., maximum 3 tasks per developer).
         </li>
+        <li><strong>Code Review:</strong> Completed tasks awaiting review.</li>
         <li>
-          <strong>To Do:</strong> Tasks chosen for the current cycle.
+          <strong>Reopen:</strong> Tasks that fail acceptance criteria and require rework. Frequent reopens may negatively impact developer KPIs.
         </li>
-        <li>
-          <strong>In Progress:</strong> Tasks currently being developed. <em>WIP limits</em> (e.g., max 3 tasks) should be maintained.
-        </li>
-        <li>
-          <strong>Code Review:</strong> Completed tasks awaiting review.
-        </li>
-        <li>
-          <strong>Reopen:</strong> Tasks that fail acceptance criteria and require rework. Frequent reopening may negatively affect a developer’s KPI.
-        </li>
-        <li>
-          <strong>Done:</strong> Tasks that have passed review and are complete.
-        </li>
+        <li><strong>Done:</strong> Tasks that have passed review and are complete.</li>
       </ol>
       <p>
         Jira’s time tracking and automated alerts help ensure tasks are updated according to the estimated timelines.
       </p>
     </section>
 
-    <!-- Section 5: Manager Guidelines & KPI -->
-    <section id="manager" class="section">
-      <h2>5. Manager Guidelines & KPI Assignment</h2>
+    <!-- New Section: Permissions & Roles -->
+    <section id="permissions" class="section">
+      <h2>5. Permissions & Roles</h2>
       <p>
-        Managers play a crucial role in ensuring task quality and meeting deadlines:
+        Establishing clear permissions is essential for maintaining consistency and accountability. Below are the suggested roles and their permissions:
       </p>
       <ul>
         <li>
-          <strong>Standup Meetings:</strong> Discuss tasks with developers and assign story points based on complexity and timeline estimates.
+          <strong>Jira Administrator / Project Administrator:</strong> Full permissions to configure boards, workflows, custom fields, and manage user roles.
         </li>
         <li>
-          <strong>Point Assignment:</strong> Only managers can adjust story points to maintain consistency in estimates.
+          <strong>Project Manager / Team Lead:</strong> Can assign and adjust story points, manage tasks, modify issue statuses, and set target KPIs.
         </li>
         <li>
-          <strong>KPI Metrics:</strong>
-          <ul>
-            <li>Timeliness: Completion of tasks within the estimated timeline.</li>
-            <li>Quality: Number of tasks sent back to the <code>Reopen</code> column.</li>
-            <li>Throughput: Number of tasks completed per cycle.</li>
-          </ul>
+          <strong>Developer:</strong> Can update the status of assigned tasks, log work, and comment on issues. <em>Note:</em> Developers should not alter story point estimates.
         </li>
         <li>
-          <strong>Impact of Reopened Tasks:</strong> Tasks that are reopened will be tracked, and frequent reopens may affect the developer’s KPI.
+          <strong>QA / Tester:</strong> Can comment, log defects, and validate tasks without modifying story points or workflow settings.
         </li>
       </ul>
       <p>
-        Managers should use Jira’s reporting tools to monitor KPIs and discuss performance in periodic review meetings.
+        These roles help ensure that only authorized users can make critical changes—such as assigning story points or adjusting workflows—thus maintaining process integrity.
       </p>
     </section>
 
-    <!-- Section 7: Reports & Automation -->
-    <section id="reports" class="section">
-      <h2>7. Reports, Metrics & Automation</h2>
+    <!-- Section 5 (continued): Manager Guidelines & KPI Assignment -->
+    <section id="manager" class="section">
+      <h2>6. Manager Guidelines & KPI Assignment</h2>
       <p>
-        Jira provides various reporting tools to monitor workflow health and efficiency:
+        Managers are responsible for ensuring task quality and meeting deadlines:
+      </p>
+      <ul>
+        <li>
+          <strong>Standup Meetings:</strong> Discuss tasks with developers and assign story points based on task complexity and timeline estimates.
+        </li>
+        <li>
+          <strong>Point Assignment:</strong> Only managers or team leads should adjust story points to maintain consistency.
+        </li>
+        <li>
+          <strong>KPI Metrics:</strong> Monitor:
+          <ul>
+            <li>Timeliness (completion within estimated timelines),</li>
+            <li>Quality (number of tasks sent back to <code>Reopen</code>), and</li>
+            <li>Throughput (number of tasks completed per cycle).</li>
+          </ul>
+        </li>
+        <li>
+          <strong>Reopened Tasks:</strong> Frequent reopens will be tracked and may affect a developer’s KPI.
+        </li>
+      </ul>
+      <p>
+        Managers should leverage Jira’s reporting tools to review KPIs during regular performance discussions.
+      </p>
+    </section>
+
+    <!-- New Section: KPI Overview -->
+    <section id="kpi-overview" class="section">
+      <h2>7. KPI Overview</h2>
+      <p>
+        Our KPI framework is designed to evaluate developer performance based on multiple metrics, including issues resolved, code quality, commit frequency, and story points delivered.
+      </p>
+      <p>
+        For detailed instructions on setting up and tracking KPIs—including how to create a Google Sheet for metrics aggregation and integrate Jira data—please visit our 
+        <a href="kpi.html">Detailed KPI Guide</a>.
+      </p>
+    </section>
+
+    <!-- Section 8: Reports & Automation -->
+    <section id="reports" class="section">
+      <h2>8. Reports, Metrics & Automation</h2>
+      <p>
+        Jira offers various reporting tools to monitor workflow health and efficiency:
       </p>
       <ul>
         <li>
@@ -204,36 +230,26 @@ Action: Send Slack/Email alert
       </ul>
     </section>
 
-    <!-- Section 8: Agile Concepts -->
+    <!-- Section 9: Agile Concepts -->
     <section id="concepts" class="section">
-      <h2>8. Agile Concepts & Best Practices</h2>
+      <h2>9. Agile Concepts & Best Practices</h2>
       <p>
-        Our development approach is a hybrid of Scrum and continuous development:
+        Our development approach combines Scrum with continuous development:
       </p>
       <ul>
-        <li>
-          <strong>Daily Standups:</strong> Brief meetings to discuss progress and blockers.
-        </li>
-        <li>
-          <strong>Sprint Planning:</strong> Collaborative review of tasks and estimation of story points.
-        </li>
-        <li>
-          <strong>Continuous Integration:</strong> Frequent code merges and regular code reviews to maintain quality.
-        </li>
-        <li>
-          <strong>Retrospectives:</strong> Periodic sessions to discuss improvements.
-        </li>
-        <li>
-          <strong>Feedback Loop:</strong> Encourage open communication and ongoing adjustments.
-        </li>
+        <li><strong>Daily Standups:</strong> Brief meetings to discuss progress and blockers.</li>
+        <li><strong>Sprint Planning:</strong> Collaborative review of tasks and estimation of story points.</li>
+        <li><strong>Continuous Integration:</strong> Frequent code merges and regular code reviews to maintain quality.</li>
+        <li><strong>Retrospectives:</strong> Periodic sessions to discuss improvements.</li>
+        <li><strong>Feedback Loop:</strong> Encourage open communication and ongoing adjustments.</li>
       </ul>
     </section>
 
-    <!-- Section 9: Conclusion -->
+    <!-- Section 10: Conclusion -->
     <section id="conclusion" class="section">
-      <h2>9. Conclusion</h2>
+      <h2>10. Conclusion</h2>
       <p>
-        This guide provides a comprehensive overview of how Algoclan manages its tasks and measures performance using Jira. By following the defined board setup, estimation, and KPI guidelines, all team members will understand what to expect and how to deliver work efficiently.
+        This guide provides a comprehensive overview of how Algoclan manages its tasks and measures performance using Jira. By following the defined board setup, estimation methods, and KPI guidelines, all team members will understand their roles and responsibilities—ensuring work is delivered efficiently.
       </p>
       <p>
         Please keep this document updated and review it periodically during retrospectives.
