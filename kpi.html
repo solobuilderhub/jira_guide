@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <!-- The base tag helps relative links resolve properly -->
+  <base href="/jira_guide/">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Algoclan KPI Guide</title>
   <link rel="stylesheet" href="style.css" />
@@ -13,117 +15,129 @@
 
   <nav>
     <ul>
+      <!-- Use relative links so that GitHub Pages routes correctly -->
       <li><a href="index.html">Home</a></li>
-      <li><a href="#kpi-guide">KPI Guide for Developers</a></li>
-      <li><a href="#manager-kpi">Manager KPI Metrics Setup</a></li>
+      <li><a href="#kpi-developer">Developer KPI Setup</a></li>
+      <li><a href="#kpi-manager">Manager KPI Setup</a></li>
+      <li><a href="#jira-integration">Jira & Sheets Integration</a></li>
+      <li><a href="#guidance">Guidance for Developers</a></li>
     </ul>
   </nav>
 
   <main>
-    <!-- KPI Guide for Developers -->
-    <section id="kpi-guide" class="section">
-      <h2>KPI Guide for Developers</h2>
-      <p>This section explains how to assign and track KPI scores for developers based on their performance.</p>
-      
-      <h3>Defining Developer KPIs</h3>
-      <ul>
-        <li><strong>Issues Resolved:</strong> Number of tasks closed per sprint.</li>
-        <li><strong>Code Quality:</strong> Number of bugs and feedback from code reviews.</li>
-        <li><strong>Commit Frequency:</strong> Regular code commits indicating active development.</li>
-        <li><strong>Story Points Delivered:</strong> Total story points completed per sprint.</li>
-        <li><strong>Timeliness:</strong> Completion of tasks within the estimated timelines.</li>
-      </ul>
-      
-      <h3>Assigning KPI Scores</h3>
-      <p>You can use a 5-point scale for each metric:</p>
-      <table class="story-points-table">
-        <tr>
-          <th>KPI</th>
-          <th>Poor (1)</th>
-          <th>Needs Improvement (2)</th>
-          <th>Average (3)</th>
-          <th>Good (4)</th>
-          <th>Excellent (5)</th>
-        </tr>
-        <tr>
-          <td>Issues Resolved</td>
-          <td>&lt; 4</td>
-          <td>4-5</td>
-          <td>6-7</td>
-          <td>8-9</td>
-          <td>10+</td>
-        </tr>
-        <tr>
-          <td>Code Quality</td>
-          <td>5+ critical bugs</td>
-          <td>3-4 critical bugs</td>
-          <td>1-2 critical bugs</td>
-          <td>Minor issues only</td>
-          <td>No bugs reported</td>
-        </tr>
-        <tr>
-          <td>Commit Frequency</td>
-          <td>No commits</td>
-          <td>1-2 per week</td>
-          <td>3 per week</td>
-          <td>4-5 per week</td>
-          <td>Daily commits</td>
-        </tr>
-        <tr>
-          <td>Story Points Delivered</td>
-          <td>&lt; 40%</td>
-          <td>40-59%</td>
-          <td>60-79%</td>
-          <td>80-99%</td>
-          <td>100%+</td>
-        </tr>
-      </table>
-      
-      <h3>Tracking and Automation</h3>
-      <p>
-        KPIs can be tracked using Google Sheets, Jira dashboards, or integrated tools like Power BI. For example, in Google Sheets, you can calculate an overall KPI score with:
-      </p>
-      <pre><code>=AVERAGE(B2:E2)</code></pre>
-      <p>
-        Conditional formatting can then be used to visualize performance.
-      </p>
+    <!-- Developer KPI Setup Section -->
+    <section id="kpi-developer" class="section">
+      <h2>Developer KPI Metrics and Google Sheet Setup</h2>
+      <p>This section guides you through setting up a Google Sheet to track developer metrics.</p>
+      <h3>Step 1: Create the Google Sheet</h3>
+      <ol>
+        <li>Create a new Google Sheet and name it <strong>"Developer Metrics – Sprint X"</strong>.</li>
+        <li>Define columns such as:
+          <ul>
+            <li>Developer Name</li>
+            <li>Sprint</li>
+            <li>Issues Resolved</li>
+            <li>Story Points Completed</li>
+            <li>Code Quality Score</li>
+            <li>Commit Frequency</li>
+            <li>Timeliness</li>
+            <li>Overall KPI Score</li>
+          </ul>
+        </li>
+        <li>
+          Use formulas to calculate the <em>Overall KPI Score</em>. For example, if you want a simple average:
+          <pre><code>=AVERAGE(C2:G2)</code></pre>
+        </li>
+        <li>
+          Apply conditional formatting to highlight performance (e.g., green for scores 4–5, yellow for scores 3–4, and red for scores below 3).
+        </li>
+      </ol>
     </section>
 
-    <!-- Manager KPI Metrics Setup -->
-    <section id="manager-kpi" class="section">
+    <!-- Manager KPI Setup Section -->
+    <section id="kpi-manager" class="section">
       <h2>Manager KPI Metrics Setup</h2>
-      <p>This section guides managers on setting up and tracking KPI metrics to evaluate team performance effectively.</p>
-      
-      <h3>Key Metrics for Managers</h3>
+      <p>This section explains how managers can set up and monitor team KPIs.</p>
+      <h3>Key Metrics to Track</h3>
       <ul>
-        <li><strong>Task Throughput:</strong> Monitor the number of tasks completed by the team.</li>
-        <li><strong>Reopen Rates:</strong> Track tasks sent back for rework to measure quality.</li>
+        <li><strong>Task Throughput:</strong> Number of tasks completed per sprint.</li>
+        <li><strong>Reopen Rates:</strong> Tasks that require rework (tracked via the <code>Reopen</code> column).</li>
         <li><strong>Team Efficiency:</strong> Average story points completed per sprint.</li>
-        <li><strong>Time to Resolution:</strong> Monitor average time taken to resolve issues.</li>
+        <li><strong>Time to Resolution:</strong> Average time taken to resolve issues.</li>
       </ul>
-      
-      <h3>Setting Up the KPI Dashboard</h3>
+      <h3>Steps to Set Up the Dashboard</h3>
       <ol>
-        <li>Define the metrics and set target values.</li>
+        <li>Define target values for each metric.</li>
         <li>Create custom fields in Jira to capture necessary data.</li>
-        <li>Use Jira filters and gadgets on dashboards to display real-time KPI data.</li>
-        <li>Automate data extraction with Jira Automation or third-party integrations (e.g., Zapier, Power BI).</li>
+        <li>Use Jira filters and dashboard gadgets to display real-time KPI data.</li>
+        <li>Review the metrics regularly with your team to address any issues.</li>
+      </ol>
+    </section>
+
+    <!-- Jira and Google Sheets Integration Section -->
+    <section id="jira-integration" class="section">
+      <h2>Integrating Jira Data into Google Sheets</h2>
+      <p>You can automate data retrieval from Jira using one of the following options:</p>
+      
+      <h3>Option 1: Jira Cloud for Sheets Add-On</h3>
+      <ol>
+        <li>Install the <a href="https://workspace.google.com/marketplace/app/jira_cloud_for_sheets/1002072061976" target="_blank">Jira Cloud for Sheets</a> add-on from the Google Workspace Marketplace.</li>
+        <li>Open your Google Sheet and navigate to <strong>Add-ons > Jira Cloud for Sheets > Create New Report</strong>.</li>
+        <li>Configure the report by entering your Jira instance URL and using a JQL query (e.g., <code>project = "YOURPROJECT" AND sprint = "Sprint X" AND status = Done</code>).</li>
+        <li>Map the fields you need (such as assignee, story points, etc.) and schedule regular data refreshes.</li>
       </ol>
       
-      <h3>Example: KPI Calculation in Google Sheets</h3>
-      <p>Use the following formula to calculate an overall KPI score:</p>
-      <pre><code>=AVERAGE(B2:E2)</code></pre>
-      <p>
-        Then apply conditional formatting rules:
-      </p>
+      <h3>Option 2: Google Apps Script with Jira REST API</h3>
+      <ol>
+        <li>In your Google Sheet, go to <strong>Extensions > Apps Script</strong>.</li>
+        <li>Insert the following sample script to fetch Jira data:
+          <pre><code>
+function fetchJiraData() {
+  var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Sheet1"); // Adjust the sheet name
+  var jiraDomain = "https://your-domain.atlassian.net";
+  var jql = "project=YOURPROJECT AND status=Done AND sprint='Sprint X'";
+  var apiUrl = jiraDomain + "/rest/api/2/search?jql=" + encodeURIComponent(jql) + "&fields=assignee,customfield_10016,created,updated";
+  
+  var options = {
+    method: "get",
+    headers: {
+      "Authorization": "Basic " + Utilities.base64Encode("email@example.com:api_token")
+    },
+    muteHttpExceptions: true
+  };
+  
+  var response = UrlFetchApp.fetch(apiUrl, options);
+  var json = JSON.parse(response.getContentText());
+  
+  // Clear existing data (except header row)
+  sheet.getRange(2, 1, sheet.getLastRow()-1, sheet.getLastColumn()).clearContent();
+  
+  var row = 2;
+  json.issues.forEach(function(issue) {
+    var assignee = issue.fields.assignee ? issue.fields.assignee.displayName : "Unassigned";
+    var storyPoints = issue.fields.customfield_10016 || 0; // Adjust field ID as needed
+    
+    sheet.getRange(row, 1).setValue(assignee);
+    sheet.getRange(row, 2).setValue("Sprint X");
+    sheet.getRange(row, 4).setValue(storyPoints);
+    row++;
+  });
+}
+          </code></pre>
+        </li>
+        <li>Set up a time-driven trigger (via the Apps Script Triggers menu) to run the function automatically.</li>
+      </ol>
+    </section>
+
+    <!-- Guidance Section -->
+    <section id="guidance" class="section">
+      <h2>Guidance for Developers</h2>
+      <p>Developers can access their performance metrics via the shared Google Sheet and the Jira dashboards configured by your manager. Please ensure to:</p>
       <ul>
-        <li>Green for scores 4–5</li>
-        <li>Yellow for scores 3–4</li>
-        <li>Red for scores below 3</li>
+        <li>Review your individual KPI scores after each sprint.</li>
+        <li>Participate in review meetings where these metrics are discussed.</li>
+        <li>Refer to the documentation provided by your team for a clear understanding of each metric.</li>
       </ul>
-      <p>
-        Regular reviews during team meetings help ensure continuous improvement.
-      </p>
     </section>
   </main>
 
